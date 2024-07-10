@@ -206,8 +206,7 @@
                 <li> <input type="checkbox" id="100"> <label for="100"> Wanted to marry Rebecca? </label> </li>
             </ol>
 
-            <input class="button" id="submit" type="submit" value="Calculate My Score!">
-            <input class="button" id="reset" type="submit" value="Clear checkboxes">
+            
         </div>
     </div> <!-- id = toHide -->
     <div id="toShow" style="display: none;">
@@ -290,6 +289,53 @@
         $('input:checkbox').removeAttr('checked');
     });
     </script>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Page Title</title>
+    <!-- Include necessary scripts and styles here -->
+    <style>
+        #scoreDisplay {
+            font-size: 40px; /* Super big size */
+            font-family: "Times New Roman", Times, serif; /* Times New Roman font */
+            color: red; /* Red color */
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <!-- Your existing form content with checkboxes -->
+
+        <!-- For example, some checkboxes -->
+        
+        <!-- Add more checkboxes as needed -->
+
+        <!-- Calculate button -->
+        <button type="button" id="calculateButton" onclick="calculateScore()">Calculate Score</button>
+    </form>
+
+    <!-- Display score -->
+    <p id="scoreDisplay"></p>
+
+    <!-- Script to calculate score -->
+    <script type="text/javascript">
+        function calculateScore() {
+            const totalPossible = 100; // Total possible score
+            let checkedCount = 0; // Counter for checked checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    checkedCount++;
+                }
+            });
+            const finalScore = totalPossible - checkedCount;
+            document.getElementById('scoreDisplay').innerText =  finalScore;
+        }
+    </script>
+</body>
+</html>
+
 
 
 
